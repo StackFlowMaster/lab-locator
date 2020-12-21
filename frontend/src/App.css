@@ -158,3 +158,8 @@ label {
   zoom: 105%;
   color: white;
 }
+
+.logo {
+  height: 54px;
+  padding-top: 10px
+}

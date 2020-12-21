@@ -8,13 +8,13 @@ const Login = (props) => {
             <h3>{ signup ? "Sign Up" : "Login" }</h3>
             <form>
                 <label>
-                    Username:
+                        Username:
                     <br/>
                     <input type="text" name="username" />
                     <br/>
                 </label><br/>
                 <label>
-                    Password:
+                        Password:
                     <br/>
                     <input type="password" name="password" />
                     <br/>
@@ -22,7 +22,7 @@ const Login = (props) => {
                 { signup &&
                     <>
                         <label>
-                        Password Confirmation:
+                            Password Confirmation:
                         <br/>
                         <input type="password" name="passwordConfirmation" />
                         <br/><br/>

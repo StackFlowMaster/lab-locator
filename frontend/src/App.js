@@ -19,7 +19,7 @@ class App extends Component  {
   render(){
     return (
       <>
-        <img src={logo} alt="Lab Locator" height="60px"/>
+        <img className="logo" src={logo} alt="Lab Locator"/>
         {this.props.user.id
         ?
           <Switch>
