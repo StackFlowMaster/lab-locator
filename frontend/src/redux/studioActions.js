@@ -1,7 +1,5 @@
 const API = "http://localhost:3000"
 
-// export const like = () => ({type: "ADD_LIKE"})
-
 export const setSelectedStudio = (id) => {
   return dispatch => {
     fetch(API + "/studios/" + id)
