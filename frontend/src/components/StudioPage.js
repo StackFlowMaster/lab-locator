@@ -23,7 +23,7 @@ class StudioPage extends Component {
             <p>Hourly Rate: ${ hourlyRate }</p>
             {/* <p>{ location.replace(/,/g, ", ") }</p> */}
             <iframe title="GOOGLE MAPS"
-              width="600"
+              width="100%"
               height="450"
               frameBorder="0" style={{border: 0}}
                 src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDqTJjYr4F6Bz7iNGct8qDxq5gRHstt6Bo&q=${location.replace(/[ ,]+/g, "+")}`} allowFullScreen>

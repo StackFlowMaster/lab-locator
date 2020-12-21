@@ -1,3 +1,5 @@
+import logo from './full_logo.png'
+
 import './App.css';
 import StudioCards from './containers/StudioCards'
 import StudioPage from './components/StudioPage'
@@ -16,7 +18,7 @@ class App extends Component  {
   render(){
     return (
       <>
-        <h1>Lab Locator</h1>
+        <img src={logo} alt="Lab Locator" height="60px"/>
         <Switch>
           <Route exact path="/studios/:id" component={StudioPage} />
           <Route exact path="/studios" component={StudioCards}/>
