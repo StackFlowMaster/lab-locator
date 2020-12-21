@@ -7,12 +7,14 @@ import Login from './components/Login'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setStudios } from './redux/studioActions'
+import { autoLogin } from './redux/userActions'
 import { Switch, Route } from 'react-router-dom'
 
 
 class App extends Component  {
 
   componentDidMount(){
+    localStorage.token && this.props.autoLogin()
     this.props.setStudios()
   }
 
@@ -36,4 +38,4 @@ class App extends Component  {
 
 const mapStateToProps = (state) => ({ user: state.user })
 
-export default connect(mapStateToProps, { setStudios })(App);
+export default connect(mapStateToProps, { setStudios, autoLogin })(App);

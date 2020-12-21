@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { toggleSignup, handleLoginFormChange, sendSignup } from '../redux/userActions'
+import { toggleSignup, handleLoginFormChange, sendSignup, sendLogin } from '../redux/userActions'
 
 const Login = (props) => {
-    const { signup, toggleSignup, form, handleLoginFormChange, sendSignup } = props
+    const { signup, toggleSignup, form, handleLoginFormChange, sendSignup, sendLogin } = props
     const { username, password, passwordConfirmation } = form
     const onSubmit = (e) => {
         e.preventDefault()
@@ -12,6 +12,8 @@ const Login = (props) => {
             } else {
                 alert("Password doesn't match confirmation")
             }
+        } else {
+            sendLogin({username: username, password: password})
         }
     }
 
@@ -35,13 +37,15 @@ const Login = (props) => {
                     <>
                         <label>
                             Password Confirmation:
-                        <br/>
-                        <input type="password" name="passwordConfirmation" value={ passwordConfirmation } onChange={ handleLoginFormChange }/>
-                        <br/><br/>
-                    </label>
-                    <input className="signin" type="submit" value="Create Account"/>
+                            <br/>
+                            <input type="password" name="passwordConfirmation" value={ passwordConfirmation } onChange={ handleLoginFormChange }/>
+                            <br/>
+                            <br/>
+                        </label>
                     </>
                 }
+                <br/>
+                <input className="signin" type="submit" value={ signup ? "Create Account" : "Login" }/>
             </form>
             <br/>
             <h4>
@@ -57,4 +61,4 @@ const mapStateToProps = (state) => ({
     form: state.user.loginForm
 })
 
-export default connect(mapStateToProps, { toggleSignup, handleLoginFormChange, sendSignup })(Login)
+export default connect(mapStateToProps, { toggleSignup, handleLoginFormChange, sendSignup, sendLogin })(Login)
