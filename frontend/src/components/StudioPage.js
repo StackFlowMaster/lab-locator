@@ -9,11 +9,34 @@ class StudioPage extends Component {
         this.props.setSelectedStudio(id)
     }
 
+
+
+    renderPage = () => {
+        const { name, website, imageUrl, hourlyRate, location, lat, long } = this.props
+        return (
+          <>
+            <h1><a href={ website }>{ name }</a></h1>
+            {/* <button onClick={ history.goBack }>←</button> */}
+            <p><img src={ imageUrl } alt={ name }/></p>
+            <p>${ hourlyRate }/hr</p>
+            <p>{ location.replace(/,/g, ", ") }</p>
+            <iframe title="GOOGLE MAPS"
+              width="600"
+              height="450"
+              frameBorder="0" style={{border: 0}}
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDqTJjYr4F6Bz7iNGct8qDxq5gRHstt6Bo&q=${location.replace(/[ ,]+/g, "+")}`} allowFullScreen>
+            </iframe>
+          </>
+        )
+      }
+
+    renderSpinner = () => <div className="loader"></div>
+
     render() {
         return(
-            <h1>
-                Studio Page Here
-            </h1>
+            <div className="show">
+                {this.props.id ? this.renderPage() : this.renderSpinner()}
+            </div>
         )
     }
 }
