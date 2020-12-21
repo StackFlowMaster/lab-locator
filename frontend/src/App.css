@@ -108,9 +108,10 @@ textarea {
 .text-block {
   position: absolute;
   bottom: 0px;
-  top: 10px;
+  top: 3px;
   right: 220px;
   background-color: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: hotpink;
   padding-left: 20px;
   padding-right: 20px;
@@ -142,4 +143,18 @@ textarea {
 
 button {
   background-color: hotpink;
+}
+
+.signin {
+  background-color: #3498db;
+}
+
+label {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.signin:hover {
+  zoom: 105%;
+  color: white;
 }

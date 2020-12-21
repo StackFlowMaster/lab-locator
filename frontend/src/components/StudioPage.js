@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setSelectedStudio, resetStudio } from '../redux/actions'
+import { setSelectedStudio, resetStudio } from '../redux/studioActions'
 
 class StudioPage extends Component {
 

@@ -7,12 +7,12 @@ const clearStudio = {
   location: ""
 }
 
-const initialStudioState = {
+const initialState = {
     studios: [],
     selectedStudio: clearStudio
 }
   
-  const studiosReducer = (state=initialStudioState, action) => {
+  const studiosReducer = (state=initialState, action) => {
     switch (action.type){
       case "SET_STUDIOS":
         return {...state, studios: action.payload}
