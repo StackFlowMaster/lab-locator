@@ -17,9 +17,9 @@ class StudioPage extends Component {
         const { name, website, imageUrl, hourlyRate, location, history} = this.props
         return (
           <>
-            <h1><a href={ website }>{ name }</a></h1>
-            <button onClick={ history.goBack }>←</button>
+            <button onClick={ history.goBack }>⇠ Back</button>
             <p><img src={ imageUrl } alt={ name }/></p>
+            <button onClick={() => { window.open(website, "_blank") }}>Visit Website</button>
             <p>Hourly Rate: ${ hourlyRate }</p>
             {/* <p>{ location.replace(/,/g, ", ") }</p> */}
             <iframe title="GOOGLE MAPS"
