@@ -18,8 +18,8 @@ class StudioPage extends Component {
             <h1><a href={ website }>{ name }</a></h1>
             {/* <button onClick={ history.goBack }>←</button> */}
             <p><img src={ imageUrl } alt={ name }/></p>
-            <p>${ hourlyRate }/hr</p>
-            <p>{ location.replace(/,/g, ", ") }</p>
+            <p>Hourly Rate: ${ hourlyRate }</p>
+            {/* <p>{ location.replace(/,/g, ", ") }</p> */}
             <iframe title="GOOGLE MAPS"
               width="600"
               height="450"
