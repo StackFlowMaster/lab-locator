@@ -4,6 +4,8 @@ import StudioCards from './containers/StudioCards'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setStudios } from './redux/actions'
+import { Switch, Route } from 'react-router-dom'
+
 
 class App extends Component  {
 
@@ -15,7 +17,10 @@ class App extends Component  {
     return (
       <>
         <h1>Lab Locator</h1>
-        <StudioCards/>
+        <Switch>
+          <Route exact path="/studios/:id" component={StudioPage} />
+          <Route exact path="/studios" component={StudioCards}/>
+        </Switch>
       </>
     );
   }
