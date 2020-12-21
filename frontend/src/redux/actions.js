@@ -23,3 +23,5 @@ export const setStudios = () => {
     })
   )}
 }
+
+export const resetStudio = () => ({type: "RESET_STUDIO"})

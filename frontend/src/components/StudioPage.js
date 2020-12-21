@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setSelectedStudio } from '../redux/actions'
+import { setSelectedStudio, resetStudio } from '../redux/actions'
 
 class StudioPage extends Component {
 
@@ -9,7 +9,9 @@ class StudioPage extends Component {
         this.props.setSelectedStudio(id)
     }
 
-
+    componentWillUnmount(){
+        this.props.resetStudio()
+    }
 
     renderPage = () => {
         const { name, website, imageUrl, hourlyRate, location, history} = this.props
@@ -45,4 +47,4 @@ const mapStateToProps = (state) => ({
     ...state.studios.selectedStudio
 })
 
-export default connect(mapStateToProps, { setSelectedStudio })(StudioPage)
+export default connect(mapStateToProps, { setSelectedStudio, resetStudio })(StudioPage)
