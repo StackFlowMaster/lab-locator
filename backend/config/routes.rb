@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   post 'auth', to: "sessions#login"
   post 'autologin', to: "sessions#autologin"
   resources :users
