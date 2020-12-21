@@ -12,11 +12,11 @@ class StudioPage extends Component {
 
 
     renderPage = () => {
-        const { name, website, imageUrl, hourlyRate, location } = this.props
+        const { name, website, imageUrl, hourlyRate, location, history} = this.props
         return (
           <>
             <h1><a href={ website }>{ name }</a></h1>
-            {/* <button onClick={ history.goBack }>←</button> */}
+            <button onClick={ history.goBack }>←</button>
             <p><img src={ imageUrl } alt={ name }/></p>
             <p>Hourly Rate: ${ hourlyRate }</p>
             {/* <p>{ location.replace(/,/g, ", ") }</p> */}
