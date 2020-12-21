@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import StudioCards from './containers/StudioCards'
 import StudioPage from './components/StudioPage'

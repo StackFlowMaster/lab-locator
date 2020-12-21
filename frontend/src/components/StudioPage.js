@@ -12,7 +12,7 @@ class StudioPage extends Component {
 
 
     renderPage = () => {
-        const { name, website, imageUrl, hourlyRate, location, lat, long } = this.props
+        const { name, website, imageUrl, hourlyRate, location } = this.props
         return (
           <>
             <h1><a href={ website }>{ name }</a></h1>

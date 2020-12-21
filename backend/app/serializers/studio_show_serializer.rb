@@ -1,5 +1,5 @@
 class StudioShowSerializer < ActiveModel::Serializer
-  attributes :id, :name, :website, :imageUrl, :hourlyRate, :lat, :long, :location
+  attributes :id, :name, :website, :imageUrl, :hourlyRate, :location
 
   def imageUrl
     object.image_url
