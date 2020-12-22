@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ReviewCard from '../components/ReviewCard'
+import ReviewForm from '../components/ReviewForm'
 import { setSelectedStudio, resetStudio } from '../redux/studioActions'
 
 class StudioPage extends Component {
 
     componentDidMount(){
-        const id = this.props.match.params.id
+      const id = parseInt(this.props.match.params.id)
+      // debugger
         this.props.setSelectedStudio(id)
     }
 
@@ -14,9 +17,9 @@ class StudioPage extends Component {
     }
 
     renderPage = () => {
-        const { name, website, imageUrl, hourlyRate, location, history} = this.props
-        return (
-          <>
+      const { name, website, imageUrl, hourlyRate, location, history, reviews, id } = this.props
+      return (
+        <>
             <button onClick={ history.goBack }>⇠ Back</button>
             <p><img src={ imageUrl } alt={ name }/></p>
             <button onClick={() => { window.open(website, "_blank") }}>Visit Website</button>
@@ -26,17 +29,21 @@ class StudioPage extends Component {
               width="100%"
               height="450"
               frameBorder="0" style={{border: 0}}
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDqTJjYr4F6Bz7iNGct8qDxq5gRHstt6Bo&q=${location.replace(/[ ,]+/g, "+")}`} allowFullScreen>
+              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDqTJjYr4F6Bz7iNGct8qDxq5gRHstt6Bo&q=${location.replace(/[ ,]+/g, "+")}`} allowFullScreen>
             </iframe>
+            <div className="reviews">
+            {this.props.user.id && <ReviewForm studio_id={id}/>}
+              { reviews.map(review => <ReviewCard key={review.id} {...review} />)}
+            </div>
           </>
         )
       }
-
-    renderSpinner = () => <div className="loader"></div>
-
-    render() {
+      
+      renderSpinner = () => <div className="loader"></div>
+      
+      render() {
         return(
-            <div className="show">
+          <div className="show">
                 {this.props.id ? this.renderPage() : this.renderSpinner()}
             </div>
         )
@@ -44,7 +51,8 @@ class StudioPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    ...state.studios.selectedStudio
+    ...state.studios.selectedStudio,
+    user: state.user
 })
 
 export default connect(mapStateToProps, { setSelectedStudio, resetStudio })(StudioPage)

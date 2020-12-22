@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_195733) do
+ActiveRecord::Schema.define(version: 2020_12_21_204740) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "studio_id", null: false
     t.string "content"
     t.integer "rating"
-    t.boolean "recommend"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["studio_id"], name: "index_reviews_on_studio_id"

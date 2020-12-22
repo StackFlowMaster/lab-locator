@@ -1,5 +1,16 @@
 const API = "http://localhost:3000"
 
+export const setStudios = () => {
+  return dispatch => {
+    fetch(API + "/studios")
+    .then(res => res.json())
+    .then(data => dispatch({
+      type: "SET_STUDIOS",
+      payload: data
+    })
+  )}
+}
+
 export const setSelectedStudio = (id) => {
   return dispatch => {
     fetch(API + "/studios/" + id)
@@ -7,17 +18,6 @@ export const setSelectedStudio = (id) => {
     .then(studio => dispatch({
       type: "SET_SELECTED_STUDIO",
       payload: studio
-    })
-  )}
-}
-
-export const setStudios = () => {
-  return dispatch => {
-    fetch(API + "/studios")
-    .then(res => res.json())
-    .then(studios => dispatch({
-      type: "SET_STUDIOS",
-      payload: studios
     })
   )}
 }

@@ -1,14 +1,14 @@
 import logo from './full_logo.png'
-
 import './App.css';
 import StudioCards from './containers/StudioCards'
-import StudioPage from './components/StudioPage'
+import StudioPage from './containers/StudioPage'
 import Login from './components/Login'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setStudios } from './redux/studioActions'
-import { autoLogin } from './redux/userActions'
+import { autoLogin, logout } from './redux/userActions'
 import { Switch, Route } from 'react-router-dom'
+import { Redirect } from 'react-router';
 
 
 class App extends Component  {
@@ -21,13 +21,17 @@ class App extends Component  {
   render(){
     return (
       <>
-        <img className="logo" src={logo} alt="Lab Locator"/>
+        <img className="logo" src={ logo } alt="Lab Locator"/>
         {this.props.user.id
         ?
+        <>
+          <button onClick={ this.props.logout }>Logout</button>
           <Switch>
-            <Route exact path="/studios/:id" component={StudioPage} />
-            <Route exact path="/studios" component={StudioCards}/>
+            <Route path="/studios/:id" component={ StudioPage } />
+            <Route path="/studios" component={ StudioCards }/>
+            <Redirect from="*" to={"/studios"}/>
           </Switch>
+        </>
         :
           <Login/>
         }
@@ -38,4 +42,4 @@ class App extends Component  {
 
 const mapStateToProps = (state) => ({ user: state.user })
 
-export default connect(mapStateToProps, { setStudios, autoLogin })(App);
+export default connect(mapStateToProps, { setStudios, autoLogin, logout })(App);

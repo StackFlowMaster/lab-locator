@@ -1,3 +1,4 @@
+import React from 'react'
 import { connect } from 'react-redux'
 import { toggleSignup, handleLoginFormChange, sendSignup, sendLogin } from '../redux/userActions'
 
@@ -24,13 +25,13 @@ const Login = (props) => {
                 <label>
                         Username:
                     <br/>
-                    <input type="text" name="username" value={ username } onChange={handleLoginFormChange}/>
+                    <input type="text" name="username" value={ username } onChange={ handleLoginFormChange }/>
                     <br/>
                 </label><br/>
                 <label>
                         Password:
                     <br/>
-                    <input type="password" name="password" value={ password } onChange={handleLoginFormChange}/>
+                    <input type="password" name="password" value={ password } onChange={ handleLoginFormChange }/>
                     <br/>
                 </label><br/>
                 { signup &&

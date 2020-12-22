@@ -4,12 +4,19 @@ const clearStudio = {
   website: "",
   image_url: "",
   hourly_rate: "",
-  location: ""
+  location: "",
+  reviews: []
+}
+
+const clearReviewForm = {
+  content: "",
+  rating: 0
 }
 
 const initialState = {
     studios: [],
-    selectedStudio: clearStudio
+    selectedStudio: clearStudio,
+    reviewForm: clearReviewForm
 }
   
   const studiosReducer = (state=initialState, action) => {
@@ -20,6 +27,20 @@ const initialState = {
         return {...state, selectedStudio: action.payload}
       case "RESET_STUDIO":
         return {...state, selectedStudio: clearStudio}
+      case "REVIEW_FORM_CHANGE":
+        return {...state, reviewForm: {
+          ...state.reviewForm,
+          [action.payload.name]: action.payload.value
+      }}
+      case "SET_REVIEW":
+      return {
+        ...state,
+        selectedStudio: {
+          ...state.selectedStudio,
+          reviews: [...state.selectedStudio.reviews, action.payload]
+        },
+        reviewForm: clearReviewForm
+      }
       default:
         return {...state}
     }
