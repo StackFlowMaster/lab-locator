@@ -46,7 +46,7 @@ const Login = (props) => {
                     </>
                 }
                 <br/>
-                <input className="signin" type="submit" value={ signup ? "Create Account" : "Login" }/>
+                <button className="signin" type="submit">{ signup ? "Create Account" : "Login" }</button>
             </form>
             <br/>
             <h4>

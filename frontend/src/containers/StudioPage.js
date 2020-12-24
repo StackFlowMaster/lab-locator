@@ -20,7 +20,7 @@ class StudioPage extends Component {
       const { name, website, imageUrl, hourlyRate, location, history, reviews, id } = this.props
       return (
         <>
-            <button onClick={ history.goBack }>⇠ Back</button>
+            <button className="back" onClick={ history.goBack }>⇠ Back</button>
             <p><img src={ imageUrl } alt={ name }/></p>
             <button onClick={() => { window.open(website, "_blank") }}>Visit Website</button>
             <p>Hourly Rate: ${ hourlyRate }</p>

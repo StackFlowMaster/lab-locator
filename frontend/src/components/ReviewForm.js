@@ -14,11 +14,14 @@ const ReviewForm = (props) => {
   return(
     <form onSubmit={ onSubmit }>
       <label>
-        Rating:
+        Rating
+        <br/>
         <input type="number" name="rating" value={rating} onChange={props.reviewFormChange} />
       </label><br/>
+      <br/>
       <label>
         Feedback:
+        <br/>
         <textarea name="content" value={content} onChange={props.reviewFormChange}></textarea>
       </label><br/>
       <br/>

@@ -25,7 +25,7 @@ class App extends Component  {
         {this.props.user.id
         ?
         <>
-          <button onClick={ this.props.logout }>Logout</button>
+          <button className="logout" onClick={ this.props.logout }>Logout</button>
           <Switch>
             <Route path="/studios/:id" component={ StudioPage } />
             <Route path="/studios" component={ StudioCards }/>

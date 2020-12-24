@@ -10,10 +10,34 @@ import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { reducer } from './redux/reducer'
 
+// const store = createStore(reducer, compose(
+//   applyMiddleware(thunk),
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// )
+
+// if (window.navigator.userAgent.includes('Chrome')) {
+//   const {store} = createStore(reducer, compose(
+//     applyMiddleware(thunk),
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+//   )
+// } else {
+//   const = createStore(reducer, compose(
+//     applyMiddleware(thunk)
+//     )
+//   )
+// }
+
+
 const store = createStore(reducer, compose(
-  applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-)
+    applyMiddleware(thunk),
+    window.navigator.userAgent.includes('Chrome') ?
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : compose,
+  ),
+);
+
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>

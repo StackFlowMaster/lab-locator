@@ -69,6 +69,19 @@ body {
   margin: 10px;
   background-color: turquoise;
   border-radius: 10px;
+  -webkit-transition: all .5s ease; /* Safari and Chrome */
+  -moz-transition: all .5s ease; /* Firefox */
+  -ms-transition: all .5s ease; /* IE 9 */
+  -o-transition: all .5s ease; /* Opera */
+  transition: all .5s ease;
+}
+
+.card:hover {
+  -webkit-transform:scale(1.05); /* Safari and Chrome */
+  -moz-transform:scale(1.05); /* Firefox */
+  -ms-transform:scale(1.05); /* IE 9 */
+  -o-transform:scale(1.05); /* Opera */
+  transform:scale(1.05);
 }
 
 .card img {
@@ -77,7 +90,8 @@ body {
 }
 
 .review {
-  background-color: red;
+  background-color: #3498db;
+  color: black;
   margin-left: 20%;
   margin-right: 20%;
   margin-top: .5em;
@@ -149,12 +163,37 @@ button {
   background-color: #3498db;
 }
 
+.logout,
+.back {
+  background-color: #3498db;
+  position: absolute;
+  height: 5%;
+  width: 15%;
+  top: 26px;
+}
+
+.logout:hover,
+.back:hover {
+  font-weight: bold;
+  outline: hotpink;
+  outline-style: groove;
+  outline-width: thick;
+}
+
+.logout {
+  right: 25px;
+}
+
+.back {
+  left: 25px;
+}
+
 label {
   color: #3498db;
   font-weight: bold;
 }
 
-.signin:hover {
+button:hover {
   zoom: 105%;
   color: white;
 }
@@ -162,4 +201,25 @@ label {
 .logo {
   height: 54px;
   padding-top: 10px
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+a:visited {
+  color: black;
+}
+
+a:active {
+  color: hotpink;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
