@@ -21,7 +21,13 @@ class StudioPage extends Component {
       return (
         <>
             <button className="back" onClick={ history.goBack }>⇠ Back</button>
-            <p><img src={ imageUrl } alt={ name }/></p>
+            
+            <div className="stu-container">
+              <p><img src={ imageUrl } alt={ name }/></p>
+              <div className="img-overlay">{ name }</div>
+            </div>
+            
+            
             <button onClick={() => { window.open(website, "_blank") }}>Visit Website</button>
             <p>Hourly Rate: ${ hourlyRate }</p>
             {/* <p>{ location.replace(/,/g, ", ") }</p> */}

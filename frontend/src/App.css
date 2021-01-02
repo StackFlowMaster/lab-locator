@@ -92,8 +92,8 @@ body {
 .review {
   background-color: #3498db;
   color: black;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: .5em;
   border-radius: 5px;
   padding: 1em;
@@ -222,4 +222,29 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.stu-container {
+  position: relative;
+  text-align: center;
+}
+
+.img-overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.75); /* Black see-through */
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+  color:#3498db;
+  font-weight: 700;
+
+}
+
+.stu-container:hover .img-overlay {
+  opacity: 1;
 }
