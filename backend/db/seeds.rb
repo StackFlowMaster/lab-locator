@@ -8,4 +8,5 @@ Studio.create(name: "House Of Hits", website: "houseofhitsmiami.com", image_url:
 Studio.create(name: "Mix Masters", website: "http://live.vcita.com/site/mixmasters", image_url: "https://s3-media0.fl.yelpcdn.com/bphoto/Dih4RdTCypNNDpDC9fjtxg/l.jpg", hourly_rate: 80, location: "Mix Masters Studios,2648 NW 21st Terrace, Miami, FL")
 Studio.create(name: "Barron Studios", website: "http://www.recordwithbarron.com/", image_url: "https://i4.ypcdn.com/blob/153df4657cb69a45f73184fc80b57d7ed868a8f6", hourly_rate: 50, location: "Barron Studios,1701 Detering St,Houston,TX")
 
+
 User.create(username: "dyl", password: "password")

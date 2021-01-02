@@ -67,7 +67,7 @@ body {
   height: 500px; */
   position: relative;
   margin: 10px;
-  background-color: turquoise;
+  background-color: #3498db;
   border-radius: 10px;
   -webkit-transition: all .5s ease; /* Safari and Chrome */
   -moz-transition: all .5s ease; /* Firefox */
@@ -85,7 +85,7 @@ body {
 }
 
 .card img {
-  width: 300px;
+  width: 350px;
   height: 200px;
 }
 
