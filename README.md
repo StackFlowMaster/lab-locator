@@ -19,8 +19,10 @@ Start your Rails API
 ```bash
 #/lab-locator/backend
 rails s
+```
 
 Start your React App
+```bash
 #/lab-locator/frontend
 npm start
 ```
