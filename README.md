@@ -1,6 +1,9 @@
 # Lab Locator
 
-Lab Locator is a platform for freelance recording engineers to advertise/market their studios. Users are free to leave feedback on applicable studios as well.
+Lab Locator is a platform for freelance recording engineers to advertise/market their studios while allowing clients to leave feedback.
+
+![](ezgif.com-gif-maker.gif)
+
 
 ## Installation
 
