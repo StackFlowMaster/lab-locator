@@ -236,7 +236,7 @@ input {
   background: rgba(0, 0, 0, 0.75); /* Black see-through */
   width: 100%;
   transition: .5s ease;
-  opacity:0;
+  opacity:1;
   font-size: 30px;
   padding: 20px;
   text-align: center;
@@ -246,5 +246,5 @@ input {
 }
 
 .stu-container:hover .img-overlay {
-  opacity: 1;
+  opacity: 0;
 }

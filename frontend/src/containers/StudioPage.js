@@ -30,7 +30,6 @@ class StudioPage extends Component {
             
             <button onClick={() => { window.open(website, "_blank") }}>Visit Website</button>
             <p>Hourly Rate: ${ hourlyRate }</p>
-            {/* <p>{ location.replace(/,/g, ", ") }</p> */}
             <iframe title="GOOGLE MAPS"
               width="100%"
               height="450"

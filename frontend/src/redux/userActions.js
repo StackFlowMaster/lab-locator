@@ -9,9 +9,8 @@ export const handleLoginFormChange = (e) => ({
 
 export const sendSignup = (userData) => {
   return dispatch => {
-    // localhost:3000/users
     fetch(API + "/users", {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -30,9 +29,8 @@ export const sendSignup = (userData) => {
 
 export const sendLogin = (userData) => {
   return dispatch => {
-    // localhost:3000/users
     fetch(API + "/login", {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -51,9 +49,8 @@ export const sendLogin = (userData) => {
 
 export const autoLogin = () => {
   return dispatch => {
-    // localhost:3000/users
     fetch(API + "/autologin", {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Authorization': localStorage.token,
         
