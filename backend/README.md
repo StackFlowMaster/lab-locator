@@ -1,25 +1,29 @@
-# README
+# Lab Locator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Lab Locator is a platform for freelance recording engineers to advertise/market their studios. Users are free to leave feedback on applicable studios as well.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Use the package manager npm to install dependencies
 
-* System dependencies
+```bash
+npm install
+```
 
-* Configuration
+## Usage
 
-* Database creation
+```bash
+#/lab-locator/backend
+rails s
 
-* Database initialization
+#/lab-locator/frontend
+npm start
+```
 
-* How to run the test suite
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Services (job queues, cache servers, search engines, etc.)
+Please make sure to update tests as appropriate.
 
-* Deployment instructions
-
-* ...
-hi
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
