@@ -15,10 +15,12 @@ npm install
 
 ## Usage
 
+Start your Rails API
 ```bash
 #/lab-locator/backend
 rails s
 
+Start your React App
 #/lab-locator/frontend
 npm start
 ```
