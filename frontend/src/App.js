@@ -10,7 +10,6 @@ import { autoLogin, logout } from './redux/userActions'
 import { Switch, Route } from 'react-router-dom'
 import { Redirect } from 'react-router';
 
-
 class App extends Component  {
 
   componentDidMount(){
@@ -40,6 +39,8 @@ class App extends Component  {
   }
 }
 
+
 const mapStateToProps = (state) => ({ user: state.user })
 
 export default connect(mapStateToProps, { setStudios, autoLogin, logout })(App);
+

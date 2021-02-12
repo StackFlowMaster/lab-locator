@@ -218,12 +218,6 @@ a:active {
   color: hotpink;
 }
 
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
 .stu-container {
   position: relative;
   text-align: center;
@@ -247,4 +241,9 @@ input {
 
 .stu-container:hover .img-overlay {
   opacity: 0;
+}
+
+.sort-button {
+  height: 30px;
+  
 }

@@ -16,7 +16,11 @@ const clearReviewForm = {
 const initialState = {
     studios: [],
     selectedStudio: clearStudio,
-    reviewForm: clearReviewForm
+    reviewForm: clearReviewForm,
+    filtersForm: {
+      search: "",
+      sorted: false
+    } 
 }
   
   const studiosReducer = (state=initialState, action) => {
@@ -33,17 +37,24 @@ const initialState = {
           [action.payload.name]: action.payload.value
       }}
       case "SET_REVIEW":
-      return {
-        ...state,
-        selectedStudio: {
-          ...state.selectedStudio,
-          reviews: [...state.selectedStudio.reviews, action.payload]
-        },
+        return {
+          ...state,
+          selectedStudio: {
+            ...state.selectedStudio,
+            reviews: [...state.selectedStudio.reviews, action.payload]
+          },
         reviewForm: clearReviewForm
       }
+      case "FILTERS_FORM_CHANGE":
+        return {...state,
+          filtersForm: {
+            ...state.filtersForm,
+            [action.payload.name]: action.payload.value
+          }
+        }
       default:
         return {...state}
-    }
+      }
   }
   
   export default studiosReducer

@@ -23,3 +23,12 @@ export const setSelectedStudio = (id) => {
 }
 
 export const resetStudio = () => ({type: "RESET_STUDIO"})
+
+export const handleFiltersFormChange = (e) => {
+  const target = e.target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+  return ({
+    type: "FILTERS_FORM_CHANGE",
+    payload: {name: e.target.name, value: value}
+  })
+}
