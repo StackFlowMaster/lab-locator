@@ -14,7 +14,14 @@ const clearReviewForm = {
 }
 
 const initialState = {
-    studios: [],
+    studios: {
+      studios: [],
+      sorted: [],
+      paginated_studios: [],
+      paginated_sorted: [],
+      page: 1,
+      page_count: 1
+    },
     selectedStudio: clearStudio,
     reviewForm: clearReviewForm,
     filtersForm: {
