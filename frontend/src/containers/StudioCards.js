@@ -1,26 +1,25 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import StudioCard from '../components/StudioCard'
-import Filter from '../components/Filter'
+import React from 'react';
+import StudioCard from '../components/StudioCard';
+import Filter from '../components/Filter';
+import { useSelector } from 'react-redux';
 
-const StudioCards = (props) => {
+const StudioCards = () => {
 
-  const searchedStudios = props.studios.filter(studio => studio.name.toLowerCase().includes(props.search.toLowerCase()));
-  const sortedStudios = props.sorted ? searchedStudios.sort((s1, s2) => (s1.hourlyRate - s2.hourlyRate)) : searchedStudios
+  const studios = useSelector(state => state.studios.studios);
+  const sorted = useSelector(state => state.studios.filtersForm.sorted);
+  const search = useSelector(state => state.studios.filtersForm.search);
 
-  return(
+  const searchedStudios = studios.filter(studio => studio.name.toLowerCase().includes(search.toLowerCase()));
+  const sortedStudios = sorted ? searchedStudios.sort((s1, s2) => (s1.hourlyRate - s2.hourlyRate)) : searchedStudios;
+
+  return (
     <>
       <Filter />
       <div className="cards">
         { sortedStudios.map(studio => <StudioCard key={studio.id} {...studio} />) }
       </div>
     </>
-  )
+  );
 }
 
-const mapStateToProps = (state) => ({
-  studios: state.studios.studios,
-  ...state.studios.filtersForm
-})
-
-export default connect(mapStateToProps)(StudioCards)
+export default StudioCards;

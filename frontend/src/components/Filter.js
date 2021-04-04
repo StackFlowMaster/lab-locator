@@ -1,27 +1,32 @@
-import { connect } from 'react-redux'
 import { handleFiltersFormChange } from '../redux/studioActions'
+import { useSelector, useDispatch } from 'react-redux';
 
-const Filter = (props) => {
-    return(
-        <form>
-        <label>
-          Search:
-          <input type="text" name="search" value={ props.search } onChange={props.handleFiltersFormChange} />
-        </label><br/>
-        <label>
-          Sort By Price:
-          <input
-            type="checkbox"
-            name="sorted"
-            checked={ props.sorted }
-            onChange={ props.handleFiltersFormChange } />
-        </label><br/>
-      </form>
-    )
+const Filter = () => {
+
+  const search = useSelector(state => state.studios.filtersForm.search);
+  const sorted = useSelector(state => state.studios.filtersForm.sorted);
+  const dispatch = useDispatch();
+
+  const handleFilterChange = (e) => {
+    dispatch(handleFiltersFormChange(e));
+  }
+
+  return(
+    <form>
+      <label>
+        Search:
+        <input type="text" name="search" value={ search } onChange={ handleFilterChange } />
+      </label><br/>
+      <label>
+        Sort By Price:
+        <input
+          type="checkbox"
+          name="sorted"
+          checked={ sorted }
+          onChange={ handleFilterChange } />
+      </label><br/>
+    </form>
+  );
 }
 
-const mapStateToProps = (state) => ({
-    ...state.studios.filtersForm
-})
-
-export default connect(mapStateToProps, { handleFiltersFormChange })(Filter)
+export default Filter

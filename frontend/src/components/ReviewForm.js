@@ -1,37 +1,46 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { reviewFormChange, submitReview } from '../redux/reviewActions'
+import React from 'react';
+import { reviewFormChange, submitReview } from '../redux/reviewActions';
+import { useSelector, useDispatch } from 'react-redux';
 
-const ReviewForm = (props) => {
+const ReviewForm = () => {
 
-  const { content, rating } = props.form
+  const form = useSelector(state => state.studios.reviewForm);
+  const studio = useSelector(state => state.studios.selectedStudio);
+  const studioId = studio.id;
+  const rating = form.rating;
+  const content = form.content;
+  const dispatch = useDispatch();
+
+  const handleFormChange = (data) => {
+    dispatch(reviewFormChange(data));
+  };
+
+  const handleSubmitReview = (data) => {
+    dispatch(submitReview(data));
+  };
 
   const onSubmit = (e) => {
     e.preventDefault()
-    props.submitReview({ ...props.form, studio_id: props.studio_id })
-  }
+    handleSubmitReview({ ...form, studioId: studioId })
+  };
 
-  return(
+  return (
     <form onSubmit={ onSubmit }>
       <label>
         Rating
         <br/>
-        <input type="number" name="rating" value={rating} onChange={props.reviewFormChange} />
+        <input type="number" name="rating" value={ rating } onChange={ handleFormChange } />
       </label><br/>
       <br/>
       <label>
         Feedback:
         <br/>
-        <textarea name="content" value={content} onChange={props.reviewFormChange}></textarea>
+        <textarea name="content" value={ content } onChange={ handleFormChange }></textarea>
       </label><br/>
       <br/>
       <input type="submit" value="Submit" />
     </form>
-  )
+  );
 }
 
-const mapStateToProps = (state) => ({
-  form: state.studios.reviewForm
-})
-
-export default connect(mapStateToProps, { reviewFormChange, submitReview })(ReviewForm)
+export default ReviewForm;

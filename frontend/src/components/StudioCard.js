@@ -1,9 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const StudioCard = (props) => {
-  // debugger
-  const {id, imageUrl, name, hourlyRate} = props
+const StudioCard = ({id, imageUrl, name, hourlyRate}) => {
   return (
     <div className="card">
       <img src={imageUrl} alt={name}/><br/>

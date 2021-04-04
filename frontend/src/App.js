@@ -1,46 +1,47 @@
-import logo from './full_logo.png'
+import logo from './full_logo.png';
 import './App.css';
-import StudioCards from './containers/StudioCards'
-import StudioPage from './containers/StudioPage'
-import Login from './components/Login'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { setStudios } from './redux/studioActions'
-import { autoLogin, logout } from './redux/userActions'
-import { Switch, Route } from 'react-router-dom'
+import StudioCards from './containers/StudioCards';
+import StudioPage from './containers/StudioPage';
+import Login from './components/Login';
+import React, { useEffect } from 'react';
+import { setStudios } from './redux/studioActions';
+import { autoLogin, logout } from './redux/userActions';
+import { Switch, Route } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
 
-class App extends Component  {
+const App = () => {
+  
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user);
 
-  componentDidMount(){
-    localStorage.token && this.props.autoLogin()
-    this.props.setStudios()
-  }
+  const signOut = () => {
+    dispatch(logout());
+  };
 
-  render(){
-    return (
+  useEffect(() => {
+    localStorage.token && dispatch(autoLogin());
+    dispatch(setStudios());
+  }, []);
+
+  return (
+    <>
+      <img className="logo" src={ logo } alt="Lab Locator"/>
+      {user.id
+      ?
       <>
-        <img className="logo" src={ logo } alt="Lab Locator"/>
-        {this.props.user.id
-        ?
-        <>
-          <button className="logout" onClick={ this.props.logout }>Logout</button>
-          <Switch>
-            <Route path="/studios/:id" component={ StudioPage } />
-            <Route path="/studios" component={ StudioCards }/>
-            <Redirect from="*" to={"/studios"}/>
-          </Switch>
-        </>
-        :
-          <Login/>
-        }
+        <button className="logout" onClick={ signOut }>Logout</button>
+        <Switch>
+          <Route path="/studios/:id" component={ StudioPage } />
+          <Route path="/studios" component={ StudioCards }/>
+          <Redirect from="*" to={"/studios"}/>
+        </Switch>
       </>
-    );
-  }
+      :
+        <Login/>
+      }
+    </>
+  );
 }
 
-
-const mapStateToProps = (state) => ({ user: state.user })
-
-export default connect(mapStateToProps, { setStudios, autoLogin, logout })(App);
-
+export default App;
