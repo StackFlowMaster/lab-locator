@@ -15,10 +15,8 @@ const clearReviewForm = {
 
 const initialState = {
     studios: {
-      studios: [],
-      sorted: [],
       paginated_studios: [],
-      paginated_sorted: [],
+      sorted_studios: [],
       page: 1,
       page_count: 1
     },
@@ -42,7 +40,7 @@ const initialState = {
         return {...state, reviewForm: {
           ...state.reviewForm,
           [action.payload.name]: action.payload.value
-      }}
+        }}
       case "SET_REVIEW":
         return {
           ...state,
@@ -51,12 +49,19 @@ const initialState = {
             reviews: [...state.selectedStudio.reviews, action.payload]
           },
         reviewForm: clearReviewForm
-      }
+        }
       case "FILTERS_FORM_CHANGE":
         return {...state,
           filtersForm: {
             ...state.filtersForm,
             [action.payload.name]: action.payload.value
+          }
+        }
+      case "RESET_PAGE":
+        return {...state,
+          studios: {
+            ...state.studios,
+            page: 1
           }
         }
       default:

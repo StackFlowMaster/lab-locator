@@ -1,4 +1,4 @@
-import { handleFiltersFormChange } from '../redux/studioActions'
+import { handleFiltersFormChange, resetPage } from '../redux/studioActions'
 import { useSelector, useDispatch } from 'react-redux';
 
 const Filter = () => {
@@ -9,6 +9,7 @@ const Filter = () => {
 
   const handleFilterChange = (e) => {
     dispatch(handleFiltersFormChange(e));
+    dispatch(resetPage());
   }
 
   return(

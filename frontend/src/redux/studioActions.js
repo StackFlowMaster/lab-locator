@@ -23,6 +23,7 @@ export const setSelectedStudio = (id) => {
 }
 
 export const resetStudio = () => ({type: "RESET_STUDIO"})
+export const resetPage = () => ({type: "RESET_PAGE"})
 
 export const handleFiltersFormChange = (e) => {
   const target = e.target;

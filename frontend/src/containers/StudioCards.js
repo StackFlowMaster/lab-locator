@@ -7,15 +7,18 @@ import { Pagination } from 'semantic-ui-react';
 
 const StudioCards = () => {
 
-  const studios = useSelector(state => state.studios.studios.paginated_studios);
   const sorted = useSelector(state => state.studios.filtersForm.sorted);
   const search = useSelector(state => state.studios.filtersForm.search);
   const page = useSelector(state => state.studios.studios.page);
   const pages = useSelector(state => state.studios.studios.page_count);
+  const studios = useSelector(state => state.studios.studios.paginated_studios);
+  const sortedStudios = useSelector(state => state.studios.studios.sorted_studios);
+  const searchedStudios = !sorted
+    ? studios.filter(studio => studio.name.toLowerCase().includes(search.toLowerCase()))
+    : sortedStudios.filter(studio => studio.name.toLowerCase().includes(search.toLowerCase()));
   const dispatch = useDispatch();
 
-  const searchedStudios = studios.filter(studio => studio.name.toLowerCase().includes(search.toLowerCase()));
-  const sortedStudios = sorted ? searchedStudios.sort((s1, s2) => (s1.hourlyRate - s2.hourlyRate)) : searchedStudios;
+  // const sortedStudios = sorted ? searchedStudios.sort((s1, s2) => (s1.hourlyRate - s2.hourlyRate)) : searchedStudios;
 
   const handlePage = (e, { activePage }) => {
     let goToPage = { activePage };
@@ -32,14 +35,17 @@ const StudioCards = () => {
     <>
       <Filter />
       <div className="cards">
-        { sortedStudios.map(studio => <StudioCard key={studio.id} {...studio} />) }
+        {
+          // sorted?
+          searchedStudios.map(studio => <StudioCard key={ studio.id } { ...studio } />)
+        }
       </div>
       <Pagination
-        onPageChange={handlePage}
+        onPageChange={ handlePage }
         size="mini"
         siblingRange="1"
-        defaultActivePage={page}
-        totalPages={pages}
+        defaultActivePage={ page }
+        totalPages={ pages } 
       />
     </>
   );
